@@ -51,7 +51,7 @@ module.exports = {
 
   // get user by Id
   getUser(req, res) {
-    const user = isUserExist(req.pqrams.id);
+    const user = isUserExist(req.params.id);
 
     if (!user) {
       return res.status(404).json({
