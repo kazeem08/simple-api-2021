@@ -67,15 +67,27 @@ module.exports = {
 
   },
 
+  // update user
   updateUser(req, res) {
-    const user = isUserExist(req.pqrams.id);
+    const user = isUserExist(req.params.id);
 
+    const { name, club } = req.body;
     if (!user) {
       return res.status(404).json({
         response: {},
         message: 'user not found'
       });
     }
+
+    const userIndex = getUserIndex(user.id);
+
+    users[userIndex].name = name || users[userIndex].name;
+    users[userIndex].club = club || users[userIndex].club;
+
+    return res.json({
+      message: 'user updated successfully',
+      response: users[userIndex],
+    })
   },
 
   // delete a user
@@ -97,7 +109,7 @@ module.exports = {
     return res.json({
       message: 'user deleted successfully',
       response: {},
-    })
+    });
 
   }
 }
