@@ -5,6 +5,8 @@ const UserController = require('../controllers/user');
 
 route.get('/users', async (req, res) => UserController.getAllUser(req, res));
 
+route.get('/users/:id', async (req, res) => UserController.getUser(req, res));
+
 route.post('/users', async (req, res) => UserController.createUser(req, res));
 
 route.patch('/users/:id', async (req, res) => UserController.updateUser(req, res));
