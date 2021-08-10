@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.get('/', async (req, res) => {
-  return res.json({
+  return res.status(200).json({
     message: 'Welcome to simple-api',
     response: {},
   });
