@@ -45,6 +45,7 @@ module.exports = {
     users.push(user);
 
     return res.status(201).json({
+      message: 'user created successfully',
       response: user,
     })
   },
