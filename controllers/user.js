@@ -44,7 +44,7 @@ module.exports = {
     // push new user to the users array
     users.push(user);
 
-    return res.json({
+    return res.status(201).json({
       response: user,
     })
   },
